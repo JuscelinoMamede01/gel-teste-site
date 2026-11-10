@@ -116,7 +116,7 @@ export const site = {
 
   // 1. HERO (topo da página)
   hero: {
-    selo: "E-book em PDF",
+    selo: "E-book digital",
     nomeProduto: "O Manual da Fertilidade", // aparece em verde, acima do título
     titulo: "O sonho de ter um filho merece mais do que respostas vagas.",
     subtitulo: "Um guia para melhorar a fertilidade de homens e mulheres",
@@ -287,9 +287,9 @@ export const site = {
     titulo: "Garanta o seu e-book",
     rotuloIncluso: "O que está incluso",
     incluso: [
-      "E-book completo em PDF",
+      "E-book completo, com leitura na plataforma da Kiwify",
       "Leitura no celular, tablet ou computador",
-      "Acesso imediato: o arquivo chega no seu e-mail após a confirmação do pagamento",
+      "Acesso imediato: o link de acesso chega no seu e-mail após a confirmação do pagamento",
     ],
     rotuloPreco: "Investimento",
     textoBotao: "Comprar o e-book",
@@ -309,12 +309,12 @@ export const site = {
       {
         pergunta: "Como recebo o livro?",
         resposta:
-          "Após a confirmação do pagamento, a Kiwify envia o e-book para o e-mail informado na compra. No Pix e no cartão a confirmação costuma ser rápida. No boleto, pode levar até 3 dias úteis.",
+          "Após a confirmação do pagamento, você recebe no e-mail informado na compra o acesso ao livro na plataforma da Kiwify. No Pix e no cartão a confirmação costuma ser rápida. No boleto, pode levar até 3 dias úteis.",
       },
       {
         pergunta: "O livro é físico ou digital?",
         resposta:
-          "É um e-book digital, em PDF. Você pode ler no celular, tablet ou computador, e também imprimir se preferir.",
+          "É um e-book digital. A leitura é feita pela plataforma da Kiwify, no celular, tablet ou computador. O conteúdo é protegido: não é possível baixar, imprimir ou copiar o texto.",
       },
       {
         pergunta: "O livro substitui uma consulta médica?",
