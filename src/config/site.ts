@@ -79,7 +79,9 @@ export const site = {
   // --------------------------------------------------------------------------
   // CONTATO
   // --------------------------------------------------------------------------
-  emailContato: "[PREENCHER]@[PREENCHER]", // ex.: "contato@manualdafertilidade.com.br"
+  // Vazio de propósito: o contato com o comprador é feito pela Kiwify.
+  // Se um dia quiser mostrar um e-mail no site (rodapé e FAQ), preencha aqui.
+  emailContato: "",
 
   // --------------------------------------------------------------------------
   // SEO / COMPARTILHAMENTO (Google, WhatsApp, Instagram, Facebook)
