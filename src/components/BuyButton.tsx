@@ -59,10 +59,14 @@ export function BuyButton({ children, origem, size = "lg", className = "" }: Pro
     <a
       href={href}
       onClick={handleClick}
+      // Checkout da Kiwify abre em outra guia (a página continua aberta na original).
+      target={checkoutIsPlaceholder ? undefined : "_blank"}
+      rel={checkoutIsPlaceholder ? undefined : "noopener"}
       data-origem={origem}
       className={`inline-flex items-center justify-center gap-2 rounded-full bg-broto font-semibold text-terra-950 shadow-lg shadow-black/30 transition-colors hover:bg-broto-claro focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-creme motion-reduce:transition-none ${tamanho} ${className}`}
     >
       {children}
+      {!checkoutIsPlaceholder && <span className="sr-only"> (abre em nova guia)</span>}
       <svg
         aria-hidden="true"
         viewBox="0 0 20 20"
