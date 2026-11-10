@@ -287,9 +287,9 @@ export const site = {
     titulo: "Garanta o seu e-book",
     rotuloIncluso: "O que está incluso",
     incluso: [
-      "E-book completo, com leitura na plataforma da Kiwify",
+      "E-book completo em formato digital",
       "Leitura no celular, tablet ou computador",
-      "Acesso imediato: o link de acesso chega no seu e-mail após a confirmação do pagamento",
+      "Acesso imediato: o link chega no seu e-mail após a confirmação do pagamento",
     ],
     rotuloPreco: "Investimento",
     textoBotao: "Comprar o e-book",
@@ -309,12 +309,12 @@ export const site = {
       {
         pergunta: "Como recebo o livro?",
         resposta:
-          "Após a confirmação do pagamento, você recebe no e-mail informado na compra o acesso ao livro na plataforma da Kiwify. No Pix e no cartão a confirmação costuma ser rápida. No boleto, pode levar até 3 dias úteis.",
+          "Após a confirmação do pagamento, você recebe no e-mail informado na compra o link para acessar o livro. No Pix e no cartão a confirmação costuma ser rápida. No boleto, pode levar até 3 dias úteis.",
       },
       {
         pergunta: "O livro é físico ou digital?",
         resposta:
-          "É um e-book digital. A leitura é feita pela plataforma da Kiwify, no celular, tablet ou computador. O conteúdo é protegido: não é possível baixar, imprimir ou copiar o texto.",
+          "É um e-book digital, para leitura no celular, tablet ou computador. O acesso é pessoal e o conteúdo é protegido.",
       },
       {
         pergunta: "O livro substitui uma consulta médica?",
