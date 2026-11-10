@@ -86,26 +86,6 @@
 }
 
 @layer components {
-  /* Segunda linha do título: só o contorno, como na capa. */
-  .texto-contorno {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--color-broto);
-    paint-order: stroke fill;
-  }
-
-  @media (min-width: 768px) {
-    .texto-contorno {
-      -webkit-text-stroke-width: 2.5px;
-    }
-  }
-
-  /* Navegadores sem suporte ao contorno mostram o texto preenchido. */
-  @supports not (-webkit-text-stroke: 1px) {
-    .texto-contorno {
-      color: var(--color-broto);
-    }
-  }
-
   /* FAQ: remove o marcador padrão do <summary> */
   .faq-item summary {
     list-style: none;

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "npx serve@latest out",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "mockup": "node scripts/gerar-mockup.cjs"
   },
   "dependencies": {
     "next": "^16.4.6",

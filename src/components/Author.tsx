@@ -7,13 +7,16 @@ export function Author() {
   const { autor, sobreAutor } = site;
   const nome = nomeAutor();
 
-  // Registro profissional: CRM sempre; RQE e especialidade só se preenchidos.
-  const registro = [
-    autor.profissao,
-    crmTexto(),
-    filled(autor.especialidade) ? autor.especialidade : null,
-    filled(autor.rqe) ? `${sobreAutor.rotuloRqe} ${autor.rqe}` : null,
-  ].filter(Boolean);
+  // Credenciais só aparecem se o autor tiver CRM preenchido (médico de verdade).
+  const crm = crmTexto();
+  const registro = crm
+    ? [
+        filled(autor.profissao) ? autor.profissao : null,
+        crm,
+        filled(autor.especialidade) ? autor.especialidade : null,
+        filled(autor.rqe) ? `${sobreAutor.rotuloRqe} ${autor.rqe}` : null,
+      ].filter(Boolean)
+    : [];
 
   return (
     <Section id="autor" titulo={sobreAutor.titulo}>
@@ -40,7 +43,9 @@ export function Author() {
 
         <div className="max-w-2xl">
           <h3 className="font-serif text-3xl text-creme md:text-4xl">{nome}</h3>
-          <p className="mt-2 text-base text-creme-suave">{registro.join(" · ")}</p>
+          {registro.length > 0 && (
+            <p className="mt-2 text-base text-creme-suave">{registro.join(" · ")}</p>
+          )}
           <div className="mt-6 flex flex-col gap-4 text-lg text-creme">
             {autor.bio.map((paragrafo) => (
               <p key={paragrafo}>{paragrafo}</p>

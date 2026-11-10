@@ -53,20 +53,26 @@ export const site = {
   precoAntigo: "", // (opcional) ex.: "R$ 97,00". Vazio = não exibe. Só use se o preço antigo for real.
 
   // --------------------------------------------------------------------------
-  // AUTOR (o CRM aparece sempre que o médico é apresentado, regra do CFM)
+  // AUTOR
+  // ⚠️ O nome do autor é um pseudônimo. NÃO atribua a ele credenciais que ele
+  // não tem: sem "Dr.", sem "Médico", sem CRM, sem "consultório" ou "pacientes".
+  // Apresentar alguém como médico sem ser é publicidade enganosa (CDC) e pode
+  // configurar crime. Os campos tratamento/profissao/crm/uf/rqe/especialidade
+  // só devem ser preenchidos se o autor for, de fato, médico com registro ativo.
   // --------------------------------------------------------------------------
   autor: {
-    tratamento: "Dr.",
+    tratamento: "",
     nome: "Rodrigo Zangriane",
-    profissao: "Médico",
-    crm: "[PREENCHER]", // só o número, ex.: "123456"
-    uf: "[PREENCHER]", // ex.: "SP"
-    rqe: "", // (opcional) ex.: "12345". Vazio = não exibe.
-    especialidade: "", // (opcional) ex.: "Urologia". Vazio = não exibe. Só use especialidade com RQE registrado.
-    fotoUrl: "", // (opcional) ex.: "/autor.jpg" (coloque o arquivo em /public). Vazio = mostra as iniciais.
+    profissao: "",
+    crm: "",
+    uf: "",
+    rqe: "",
+    especialidade: "",
+    fotoUrl: "", // (opcional) Não use foto de outra pessoa nem rosto gerado por IA como se fosse o autor. Vazio = iniciais.
+    // Bio sem credenciais: fale do livro e do propósito, não de formação ou experiência clínica.
     bio: [
-      "[PREENCHER] Primeiro parágrafo da biografia: formação, onde atua e há quanto tempo atende pacientes.",
-      "[PREENCHER] Segundo parágrafo (opcional): por que decidiu escrever o livro.",
+      "Rodrigo Zangriane é o autor do Manual da Fertilidade. O livro reúne, em linguagem simples, informações sobre fertilidade masculina e feminina, hormônios e hábitos de vida.",
+      "O objetivo é ajudar casais a entender melhor o tema e a chegar mais preparados às conversas com seus médicos.",
     ],
   },
 
@@ -80,9 +86,9 @@ export const site = {
   // --------------------------------------------------------------------------
   seo: {
     urlDoSite: "https://manualdafertilidade.com.br",
-    titulo: "O Manual da Fertilidade | E-book do Dr. Rodrigo Zangriane",
+    titulo: "O Manual da Fertilidade | E-book de Rodrigo Zangriane",
     descricao:
-      "E-book com orientações para homens e mulheres que querem cuidar da fertilidade, a partir de histórias reais de consultório, incluindo quem usa ou já usou hormônios.",
+      "E-book com informações para homens e mulheres que querem entender melhor a fertilidade do casal, incluindo quem usa ou já usou hormônios.",
   },
 
   // --------------------------------------------------------------------------
@@ -91,9 +97,9 @@ export const site = {
   // --------------------------------------------------------------------------
   capa: {
     src: "/capa.jpg",
-    largura: 800,
-    altura: 1200,
-    alt: "Capa do e-book O Manual da Fertilidade, do Dr. Rodrigo Zangriane",
+    largura: 802,
+    altura: 1280,
+    alt: "Capa do e-book O Manual da Fertilidade, de Rodrigo Zangriane",
   },
 
   // --------------------------------------------------------------------------
@@ -111,11 +117,8 @@ export const site = {
   // 1. HERO (topo da página)
   hero: {
     selo: "E-book em PDF",
-    // O título visual é montado assim: linhaSuperior / palavra1 (preenchida) / palavra2 (contorno)
-    tituloLinhaSuperior: "O Manual da",
-    tituloPalavraPreenchida: "FERTI",
-    tituloPalavraContorno: "LIDADE",
-    tituloCompleto: "O Manual da Fertilidade", // lido por leitores de tela
+    nomeProduto: "O Manual da Fertilidade", // aparece em verde, acima do título
+    titulo: "O sonho de ter um filho merece mais do que respostas vagas.",
     subtitulo: "Um guia para melhorar a fertilidade de homens e mulheres",
     prefixoAutor: "por",
     textoBotao: "Comprar o e-book",
@@ -125,10 +128,13 @@ export const site = {
   // 1.1 APRESENTAÇÃO (logo abaixo do topo)
   // Use **texto** para destacar em negrito.
   apresentacao: {
-    titulo: "O sonho de ter um filho merece mais do que respostas vagas.",
+    // Título visível da seção (opcional). Vazio = a seção começa direto no
+    // primeiro parágrafo (a frase de abertura agora é o título do topo).
+    titulo: "",
+    rotuloAcessivel: "Apresentação do livro", // lido por leitores de tela quando não há título
     // O primeiro parágrafo aparece maior, como abertura.
     paragrafos: [
-      "**Quando a gravidez não acontece, cada mês pode trazer uma nova esperança — e, com ela, novas dúvidas, frustrações e perguntas que parecem não ter fim.**",
+      "**Quando a gravidez não acontece, cada mês pode trazer uma nova esperança e, com ela, novas dúvidas, frustrações e perguntas que parecem não ter fim.**",
       "Entre exames, consultas, tentativas e conselhos contraditórios, muitos casais acabam percorrendo um caminho desgastante, sem compreender plenamente os fatores que podem influenciar sua fertilidade.",
       "**Foi pensando nessa jornada que nasceu o Manual da Fertilidade.**",
       "Um guia desenvolvido para ajudar o casal a compreender melhor a fertilidade feminina e masculina, organizar informações importantes e conhecer aspectos que merecem atenção durante a busca pela gravidez.",
@@ -177,7 +183,7 @@ export const site = {
   conteudo: {
     titulo: "O que você vai encontrar",
     introducao:
-      "Orientações práticas organizadas a partir de histórias reais de consultório, contadas sem identificar ninguém.",
+      "Informações práticas sobre fertilidade masculina e feminina, organizadas em linguagem simples.",
     topicos: [
       {
         titulo: "Fertilidade masculina",
@@ -207,10 +213,19 @@ export const site = {
   // iniciais, foto, cidade ou qualquer detalhe que permita reconhecer o paciente.
   // Não descreva resultados como garantidos.
   casos: {
+    // Relatos REAIS de pessoas com quem conversamos (não são pacientes do autor,
+    // que não é médico). Regras para manter esta seção:
+    // - Tenha a autorização de cada pessoa para usar o relato.
+    // - Nada de nome, cidade, profissão ou detalhe que identifique alguém.
+    // - Não dizer que o autor atendeu/tratou ninguém.
+    // - Não sugerir cura ou que o livro garante gravidez. Tratamentos sempre
+    //   "indicados pelo médico que acompanhava", nunca como receita do livro.
+    exibir: true,
     titulo: "Casos",
-    introducao: "Alguns resumos das histórias que inspiraram o livro.",
+    introducao:
+      "Situações reais de pessoas com quem conversamos. Elas ajudaram a dar forma ao conteúdo do livro.",
     aviso:
-      "Relatos individuais apresentados de forma anonimizada. Os resultados não representam garantia de gravidez ou de resposta a qualquer intervenção. O conteúdo do livro é educativo e não substitui avaliação médica individualizada.",
+      "Relatos reais, apresentados sem identificação das pessoas envolvidas. Cada história é única: os resultados não representam garantia de gravidez ou de resposta a qualquer intervenção. O conteúdo do livro é educativo e não substitui avaliação médica individualizada.",
     rotuloSituacao: "A situação",
     rotuloOQueAconteceu: "O que aconteceu",
     rotuloAprendizado: "O que esse caso ensina",
@@ -223,7 +238,7 @@ export const site = {
         situacao:
           "Aos 32 anos, ela convivia com um mioma de grandes proporções e havia recebido avaliações médicas bastante pessimistas sobre suas chances de engravidar. O sonho da maternidade parecia cada vez mais distante.",
         oQueAconteceu:
-          "Após mudanças pontuais na alimentação e o uso de um medicamento de baixo custo, sob acompanhamento, veio uma notícia surpreendente: apenas dois meses depois, a gravidez foi confirmada. Segundo o relato, uma nova avaliação também não identificou o mioma anteriormente observado.",
+          "Ela fez mudanças pontuais na alimentação e seguiu o tratamento indicado pelo médico que a acompanhava. Algum tempo depois, veio a notícia tão esperada: a gravidez foi confirmada.",
         aprendizado:
           "Um diagnóstico difícil merece investigação cuidadosa. Compreender as particularidades de cada situação pode revelar possibilidades que inicialmente pareciam distantes.",
       },
@@ -242,12 +257,12 @@ export const site = {
       {
         rotulo: "Caso 3",
         titulo: "Quando o corpo não acompanhava um novo sonho",
-        perfil: "Casal de médicos, 34 e 33 anos",
+        perfil: "Casal, 34 e 33 anos",
         tema: "Histórico de uso hormonal",
         situacao:
-          "Dois médicos, ambos atletas, com histórico de utilização de hormônios, incluindo testosterona. Quando decidiram ter um filho, interromperam o uso, acreditando que o organismo retomaria naturalmente seu funcionamento. Mas a recuperação não aconteceu como esperavam.",
+          "Ambos atletas, com histórico de utilização de hormônios, incluindo testosterona. Quando decidiram ter um filho, interromperam o uso, acreditando que o organismo retomaria naturalmente seu funcionamento. Mas a recuperação não aconteceu como esperavam.",
         oQueAconteceu:
-          "O casal buscou uma abordagem que considerasse a recuperação hormonal, a avaliação de minerais, o uso de medicamentos e o controle da ansiedade que acompanhava as tentativas. Alguns meses depois, chegou a notícia: finalmente estavam comemorando a gravidez tão desejada.",
+          "Com acompanhamento médico, o casal buscou uma abordagem que considerasse a recuperação hormonal, a avaliação de minerais, o uso de medicamentos e o controle da ansiedade que acompanhava as tentativas. Alguns meses depois, chegou a notícia: finalmente estavam comemorando a gravidez tão desejada.",
         aprendizado:
           "Interromper o uso de hormônios nem sempre significa recuperação imediata da função reprodutiva. A avaliação individualizada e o acompanhamento especializado são fundamentais nessa jornada.",
       },
@@ -262,6 +277,13 @@ export const site = {
 
   // 6. OFERTA
   oferta: {
+    // Imagem do e-book em tablet e celular (public/mockup.webp). src "" = não exibe.
+    mockup: {
+      src: "/mockup.webp",
+      largura: 1040,
+      altura: 1060,
+      alt: "O e-book O Manual da Fertilidade aberto em um tablet e em um celular",
+    },
     titulo: "Garanta o seu e-book",
     rotuloIncluso: "O que está incluso",
     incluso: [

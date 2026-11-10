@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { site } from "@/config/site";
+import { filled } from "@/lib/format";
 import { OFERTA_ID, OFERTA_TITULO_ID } from "@/lib/ids";
 import { BuyButton } from "@/components/BuyButton";
 import { Price } from "@/components/Price";
@@ -6,6 +8,7 @@ import { CheckIcon, LockIcon, ShieldIcon } from "@/components/icons";
 
 export function Offer() {
   const { oferta } = site;
+  const temMockup = filled(oferta.mockup.src);
 
   return (
     <section
@@ -18,12 +21,30 @@ export function Offer() {
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_100%,rgba(124,211,79,0.10),transparent_70%)]"
       />
 
-      <div className="mx-auto max-w-xl px-5">
-        <div className="rounded-3xl border border-terra-700 bg-terra-900 p-6 shadow-2xl shadow-black/40 sm:p-10">
+      <div
+        className={`mx-auto px-5 ${
+          temMockup
+            ? "flex max-w-5xl flex-col items-center gap-6 md:grid md:grid-cols-2 md:items-center md:gap-8"
+            : "max-w-xl"
+        }`}
+      >
+        {temMockup && (
+          <Image
+            src={oferta.mockup.src}
+            alt={oferta.mockup.alt}
+            width={oferta.mockup.largura}
+            height={oferta.mockup.altura}
+            loading="lazy"
+            sizes="(min-width: 768px) 520px, 80vw"
+            className="h-auto w-4/5 max-w-sm md:w-full md:max-w-none lg:w-[115%] md:justify-self-center"
+          />
+        )}
+
+        <div className="w-full max-w-xl rounded-3xl border border-terra-700 bg-terra-900 p-6 shadow-2xl shadow-black/40 sm:p-10">
           <h2
             id={OFERTA_TITULO_ID}
             tabIndex={-1}
-            className="text-center font-serif text-3xl leading-tight text-creme md:text-4xl"
+            className="text-center font-serif text-3xl leading-tight text-balance text-creme lg:text-4xl"
           >
             {oferta.titulo}
           </h2>

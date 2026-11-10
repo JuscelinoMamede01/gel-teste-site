@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import { site } from "@/config/site";
+import { nomeAutor } from "@/lib/format";
 import { Analytics } from "@/components/Analytics";
 import "./globals.css";
 
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
   title: site.seo.titulo,
   description: site.seo.descricao,
   alternates: { canonical: "/" },
-  authors: [{ name: `${site.autor.tratamento} ${site.autor.nome}` }],
+  authors: [{ name: nomeAutor() }],
   openGraph: {
     type: "website",
     locale: "pt_BR",

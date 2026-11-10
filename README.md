@@ -1,6 +1,6 @@
 # O Manual da Fertilidade: landing page
 
-Página de vendas do e-book **O Manual da Fertilidade**, do Dr. Rodrigo Zangriane.
+Página de vendas do e-book **O Manual da Fertilidade**, de Rodrigo Zangriane (pseudônimo; não apresentar o autor como médico).
 
 O objetivo da página é um só: levar o visitante a clicar em **Comprar** e ir para o checkout da **Kiwify**, onde a venda acontece. A página não processa pagamento, não tem backend e não tem banco de dados. É um site estático (Next.js + Tailwind) hospedado na Vercel.
 

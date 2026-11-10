@@ -3,8 +3,16 @@ import { RichText } from "@/components/RichText";
 
 /** Apresentação do livro, logo após o hero. Textos em site.apresentacao. */
 export function Intro() {
-  const { titulo, paragrafos, destaque, paragrafosFinais, chamada, textoBotao, destinoBotao } =
-    site.apresentacao;
+  const {
+    titulo,
+    rotuloAcessivel,
+    paragrafos,
+    destaque,
+    paragrafosFinais,
+    chamada,
+    textoBotao,
+    destinoBotao,
+  } = site.apresentacao;
   const [abertura, ...resto] = paragrafos;
 
   return (
@@ -14,16 +22,22 @@ export function Intro() {
       className="border-t border-terra-800 bg-terra-900 py-16 md:py-24"
     >
       <div className="mx-auto max-w-3xl px-5">
-        <h2
-          id="apresentacao-titulo"
-          className="font-serif text-4xl leading-[1.1] text-creme md:text-6xl"
-        >
-          {titulo}
-        </h2>
+        {titulo ? (
+          <h2
+            id="apresentacao-titulo"
+            className="mb-8 font-serif text-4xl leading-[1.1] text-creme md:text-6xl"
+          >
+            {titulo}
+          </h2>
+        ) : (
+          <h2 id="apresentacao-titulo" className="sr-only">
+            {rotuloAcessivel}
+          </h2>
+        )}
 
         {abertura && (
-          <p className="mt-8 text-xl leading-relaxed text-creme md:text-2xl">
-            <RichText texto={abertura} strongClassName="font-medium text-creme" />
+          <p className="font-serif text-2xl leading-snug text-creme md:text-4xl">
+            <RichText texto={abertura} strongClassName="font-normal text-creme" />
           </p>
         )}
 

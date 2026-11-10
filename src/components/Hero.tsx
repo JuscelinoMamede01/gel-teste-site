@@ -27,19 +27,13 @@ export function Hero() {
             {hero.selo}
           </p>
 
-          <h1 id="hero-titulo" className="font-serif text-creme">
-            <span className="sr-only">{hero.tituloCompleto}</span>
-            <span aria-hidden="true" className="block">
-              <span className="block text-2xl text-broto md:text-3xl">
-                {hero.tituloLinhaSuperior}
-              </span>
-              <span className="mt-1 block text-[clamp(3.5rem,18vw,5.5rem)] leading-[0.88] tracking-tight md:text-[4.75rem] lg:text-[6.5rem]">
-                {hero.tituloPalavraPreenchida}
-              </span>
-              <span className="texto-contorno block text-[clamp(3.5rem,18vw,5.5rem)] leading-[0.95] tracking-tight md:text-[4.75rem] lg:text-[6.5rem]">
-                {hero.tituloPalavraContorno}
-              </span>
-            </span>
+          <p className="font-serif text-xl text-broto md:text-2xl">{hero.nomeProduto}</p>
+
+          <h1
+            id="hero-titulo"
+            className="mt-3 font-serif text-[2.5rem] leading-[1.08] text-balance text-creme md:text-5xl lg:text-6xl"
+          >
+            {hero.titulo}
           </h1>
 
           <p className="mt-6 max-w-md text-lg text-creme md:text-xl">{hero.subtitulo}</p>

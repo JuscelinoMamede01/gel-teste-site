@@ -1,3 +1,4 @@
+import { site } from "@/config/site";
 import { Hero } from "@/components/Hero";
 import { Intro } from "@/components/Intro";
 import { ForWhom } from "@/components/ForWhom";
@@ -19,7 +20,7 @@ export default function Home() {
         <ForWhom />
         <Hormones />
         <Contents />
-        <Cases />
+        {site.casos.exibir && <Cases />}
         <Author />
         <Offer />
         <Faq />
